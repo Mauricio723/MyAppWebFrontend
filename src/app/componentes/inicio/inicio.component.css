@@ -1,0 +1,21 @@
+
+.colorInicio01 {
+    background-color:rgb(11, 66, 73);
+    color:rgb(198, 214, 231);
+}
+
+.textoCentrado {
+    text-align: center;
+}
+
+.divInicio01 {
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.divInicio02 {
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid black;
+}

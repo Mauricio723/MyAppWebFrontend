@@ -1,0 +1,41 @@
+
+.colorConfigVariable {
+    background-color: var(--color_fondo_01, "rgb(255,255,255)");
+    color: var(--color_texto_01, "rgb(0,0,0)");
+}
+
+.divConfig01 {
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid black;
+
+}
+
+.divConfig02 {
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid green;
+}
+
+.divConfig03 {
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid rgb(219, 216, 41);
+}
+
+.divConfig04 {
+    display: inline-block;
+
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid rgb(185, 48, 14);
+}
+
+
+.estiloLabel01 {    
+    margin: 10px;
+}
+
+.estiloBoton01 {
+    margin: 10px;
+}

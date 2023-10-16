@@ -1,0 +1,111 @@
+
+<div class="divConfig01">
+    <h4>Espacio para configuración de estilos de la página</h4>
+    
+    <div class="divConfig02">
+        <button (click)="clkBtnConfigurarPagina()" [disabled]="botonConfiguracionDesabilitado">Configurar
+            Página</button>
+    </div>
+ 
+    <div class="divConfig02" *ngIf="mostrarSeccionConfiguracion">
+
+        <div class="">
+            <h5>Configuración de estilos de la página</h5>
+        </div>
+
+        <div class="divConfig03">
+
+            <div class="divConfig04">
+
+                <label class="estiloLabel01" for="colorOscuroSelect">{{textoColorOscuro}}</label>
+                <select name="colorOscuroSelect" id="colorOscuroSelect" [(ngModel)]="colorOscuro"
+                    (change)="changeSelectColores()">
+
+                    <option value="rgb(0,0,0)">color oscuro 01</option>
+                    <option value="rgb(10,10,10)">Color oscuro 02</option>
+                    <option value="rgb(20,20,20)">color oscuro 03</option>
+                    <option value="rgb(20,100,20)">Color oscuro 04</option>
+                    <option value="rgb(40,200,10)">Color oscuro 05</option>                
+                    <option value="rgb(0,100,10)">Color oscuro 06</option>
+                    <option value="rgb(0,100,100)">Color oscuro 07</option>
+                    <option value="rgb(10,40,100)">Color oscuro 08</option>
+                    <option value="rgb(40,10,200)">Color oscuro 09</option>
+                    <option value="rgb(200,20,10)">Color oscuro 10</option>
+                    <option value="rgb(70,30,20)">Color oscuro 11</option>
+                    <option value="rgb(120,120,10)">Color oscuro 12</option>
+                    <option value="rgb(70,10,100)">Color oscuro 13</option>                             
+                    <option value="rgb(10,70,100)">Color oscuro 14</option>
+                    <option value="rgb(20,40,120)">Color oscuro 15</option>
+                  
+                    <option value="#C38EC7">Purple Dragon</option>
+                    <option value="#C8A2C8">Lilac</option>
+                    <option value="#E6A9EC">Blush Pink</option>
+                    <option value="#E0B0FF">Mauve</option>
+                    <option value="#C6AEC7">Wisteria Purple</option>
+                    <option value="#F9B7FF">Blossom Pink</option>
+                    <option value="#D2B9D3">Thistle</option>
+                    <option value="#E9CFEC">Periwinkle</option>
+
+                </select>
+
+            </div>
+
+            <div class="divConfig04">
+
+                <label class="estiloLabel01" for="colorClaroSelect">{{textoColorClaro}}</label>
+                <select name="colorClaroSelect" id="colorClaroSelect" [(ngModel)]="colorClaro"
+                    (change)="changeSelectColores()">
+
+                    <option value="rgb(255,255,255)">Color Claro 01</option>
+                    <option value="#B6B6B4">Gray Cloud</option>
+                    <option value="#D1D0CE">Gray Goose</option>
+                    <option value="#E5E4E2">Platinum</option>
+                    <option value="#BCC6CC">Metallic Silver</option>
+                    <option value="#98AFC7">Blue Gray</option>
+                  
+                    <option value="#FDEEF4">Pearl</option>
+                    <option value="#FFF5EE">SeaShell</option>
+                    <option value="#FEFCFF">Milk White</option>
+
+                </select>
+
+            </div>
+
+            <div class="divConfig04">
+
+                <input type="radio" id="fondo_oscuro" name="colores_pagina" value="fondo_oscuro"
+                    (change)="obtenerValorInputRadio('fondo_oscuro')" [checked]="checkedInputOscuro">
+                <label class="estiloLabel01" for="fondo_oscuro">Fondo Oscuro</label><br>
+                <input type="radio" id="fondo_claro" name="colores_pagina" value="fondo_claro"
+                    (change)="obtenerValorInputRadio('fondo_claro')" [checked]="checkedInputClaro">
+                <label class="estiloLabel01" for="fondo_claro">Fondo Claro</label><br>
+
+            </div>
+
+            <div class="divConfig04">
+
+                <label class="estiloLabel01" for="sizeTexto">Tamaño del texto </label>
+                <select name="sizeTexto" id="sizeTexto" (change)="cambiarSizeTexto()" [(ngModel)]="sizeTextoNuevo">
+                    <option value="0.8em">Tamaño texto : 80%</option>
+                    <option value="0.9em">Tamaño texto : 90%</option>
+                    <option value="1em" selected>Tamaño texto : 100%</option>
+                    <option value="1.1em">Tamaño texto : 110%</option>
+                    <option value="1.2em">Tamaño texto : 120%</option>
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="divConfig03">
+
+            <button class="estiloBoton01" (click)="clkBtnGuardarCambios()">Guardar Preferencias</button>
+            <button class="estiloBoton01" (click)="clkBtnValoresPredeterminados()">Volver a valores
+                predeterminados</button>
+            <button class="estiloBoton01" (click)="clkBtnSalirSinGuardarCambios()">Salir sin guardar
+                cambios</button>
+        </div>
+
+    </div>
+
+</div>
