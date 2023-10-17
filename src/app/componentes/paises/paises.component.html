@@ -1,0 +1,47 @@
+<div class="divPaises01">
+
+    <div class="divPaises02">
+        <h3>Paises del mundo - API Countries</h3>
+        <h4>Recurso obtenido de: https://restcountries.com/</h4>
+    </div>
+
+    <div class="divPaises02">
+        <button type="button" (click)="btnMostrarPaises()">Mostrar Países</button>
+    </div>
+
+    <div class="divPaises02">
+
+        <div class="divPaises03">
+            <p>Espacio para mostrar paises</p>
+
+            <div *ngFor="let pais of datosPaises01" class="itemPais01">
+                <a class="" href="#datosPais01" (click)="mostrarPaisPorNombre(pais.name.official)"> {{pais.translations.spa.common}} </a>                                 
+            </div>
+
+        </div>
+
+        <div class="divPaises03" id="datosPais01">
+            <p>Datos país Seleccionado </p>
+
+            <div *ngIf="datosPaisPorNombre != null" class="divPaises04">
+
+                <p>Nombre Común : {{datosPaisPorNombre[0].name.common}}</p>
+                <p>Nombre Oficial : {{datosPaisPorNombre[0].name.official}}</p>
+                <p>Capital : {{datosPaisPorNombre[0].capital}}</p>
+                <p>Nombre Común en español : {{datosPaisPorNombre[0].translations.spa.common}}</p>
+                <p>Región : {{datosPaisPorNombre[0].region}}</p>
+                <p>Subregion : {{datosPaisPorNombre[0].subregion}}</p>
+                <p>Latitud : {{datosPaisPorNombre[0].latlng[0]}}</p>
+                <p>Longitud :  {{datosPaisPorNombre[0].latlng[1]}}</p>
+                <p>Mapa GoogleMaps : {{datosPaisPorNombre[0].maps.googleMaps}}</p>
+                <p>Bandera url en png : {{datosPaisPorNombre[0].flags.png}}</p>
+                <p>Bandera url en svg : {{datosPaisPorNombre[0].flags.svg}}</p>
+                <img src={{datosPaisPorNombre[0].flags.png}} alt="Bandera del país">
+            </div>
+          
+          
+        </div>
+
+    </div>
+
+</div>

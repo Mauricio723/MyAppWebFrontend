@@ -1,10 +1,13 @@
 
+/*
 .colorConfigVariable {
-    background-color: var(--color_fondo_01, "rgb(255,255,255)");
-    color: var(--color_texto_01, "rgb(0,0,0)");
+    background-color: var(--color_fondo_03, "rgb(255,255,255)");
+    color: var(--color_texto_03, "rgb(0,0,0)");
 }
+*/
 
 .divConfig01 {
+    
     margin: 5px;
     padding: 10px;
     border: 1px solid black;
@@ -12,18 +15,26 @@
 }
 
 .divConfig02 {
+    background-color: var(--color_fondo_01, "rgb(230,230,230)");
+
     margin: 5px;
     padding: 10px;
     border: 1px solid green;
 }
 
 .divConfig03 {
+    background-color: var(--color_fondo_02, "rgb(240,250,22)");
+    
     margin: 5px;
     padding: 10px;
     border: 1px solid rgb(219, 216, 41);
 }
 
 .divConfig04 {
+
+    background-color: var(--color_fondo_03, "rgb(200,200,200)");
+    color: var(--color_texto_03, "rgb(10,10,10)");
+
     display: inline-block;
 
     margin: 5px;

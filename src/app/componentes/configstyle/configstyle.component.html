@@ -3,13 +3,13 @@
     <h4>Espacio para configuración de estilos de la página</h4>
     
     <div class="divConfig02">
-        <button (click)="clkBtnConfigurarPagina()" [disabled]="botonConfiguracionDesabilitado">Configurar
-            Página</button>
+        <button (click)="clkBtnConfigurarPagina()" [disabled]="botonConfiguracionDesabilitado">
+            Configurar Página</button>
     </div>
  
     <div class="divConfig02" *ngIf="mostrarSeccionConfiguracion">
 
-        <div class="">
+        <div class="divConfig03">
             <h5>Configuración de estilos de la página</h5>
         </div>
 
@@ -22,29 +22,24 @@
                     (change)="changeSelectColores()">
 
                     <option value="rgb(0,0,0)">color oscuro 01</option>
-                    <option value="rgb(10,10,10)">Color oscuro 02</option>
-                    <option value="rgb(20,20,20)">color oscuro 03</option>
-                    <option value="rgb(20,100,20)">Color oscuro 04</option>
-                    <option value="rgb(40,200,10)">Color oscuro 05</option>                
-                    <option value="rgb(0,100,10)">Color oscuro 06</option>
-                    <option value="rgb(0,100,100)">Color oscuro 07</option>
-                    <option value="rgb(10,40,100)">Color oscuro 08</option>
-                    <option value="rgb(40,10,200)">Color oscuro 09</option>
-                    <option value="rgb(200,20,10)">Color oscuro 10</option>
-                    <option value="rgb(70,30,20)">Color oscuro 11</option>
-                    <option value="rgb(120,120,10)">Color oscuro 12</option>
-                    <option value="rgb(70,10,100)">Color oscuro 13</option>                             
-                    <option value="rgb(10,70,100)">Color oscuro 14</option>
-                    <option value="rgb(20,40,120)">Color oscuro 15</option>
+                    <option value="rgb(19, 4, 3)">Color oscuro 02</option>
+                    <option value="rgb(34, 17, 4)">color oscuro 03</option>
+                    <option value="rgb(56, 29, 8)">Color oscuro 04</option>
+                    <option value="rgb(32, 29, 2)">Color oscuro 05</option>                
+                    <option value="rgb(26, 36, 3)">Color oscuro 06</option>
+                    <option value="rgb(54, 73, 8)">Color oscuro 07</option>
+                    <option value="rgb(7, 26, 2)">Color oscuro 08</option>
+                    <option value="rgb(7, 71, 26)">Color oscuro 09</option>
+                    <option value="rgb(5, 34, 46)">Color oscuro 10</option>
+                    <option value="rgb(10, 70, 95)">Color oscuro 11</option>
+                    <option value="rgb(19, 113, 153)">Color oscuro 12</option>
+                    <option value="rgb(5, 15, 49)">Color oscuro 13</option>                             
+                    <option value="rgb(39, 5, 49)">Color oscuro 14</option>
+                    <option value="rgb(79, 9, 100)">Color oscuro 15</option>
                   
-                    <option value="#C38EC7">Purple Dragon</option>
-                    <option value="#C8A2C8">Lilac</option>
-                    <option value="#E6A9EC">Blush Pink</option>
-                    <option value="#E0B0FF">Mauve</option>
-                    <option value="#C6AEC7">Wisteria Purple</option>
-                    <option value="#F9B7FF">Blossom Pink</option>
-                    <option value="#D2B9D3">Thistle</option>
-                    <option value="#E9CFEC">Periwinkle</option>
+                    <option value="rgb(63, 7, 26)">Color oscuro 16</option>
+                    <option value="rgb(119, 9, 46)">Color oscuro 17</option>
+                    <option value="rgb(151, 23, 30)">Color oscuro 18</option>
 
                 </select>
 

@@ -8,3 +8,18 @@
 .textoCentrado {
     text-align: center;
 }
+
+.divFoto01 {
+    position: absolute;
+    z-index: 20;
+
+    margin-top: 20px;
+    margin-left: 10px;
+    
+}
+
+.fotoMauricio01 {    
+
+    border-radius: 70px;
+
+}

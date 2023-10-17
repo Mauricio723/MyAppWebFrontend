@@ -9,7 +9,10 @@ import { FooterComponent } from './componentes/footer/footer.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { NavegacionComponent } from './componentes/navegacion/navegacion.component';
 import { ConfigstyleComponent } from './componentes/configstyle/configstyle.component';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CiudadesComponent } from './componentes/ciudades/ciudades.component';
+import { PaisesComponent } from './componentes/paises/paises.component';
 
 @NgModule({
   declarations: [
@@ -19,11 +22,14 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     InicioComponent,
     NavegacionComponent,
-    ConfigstyleComponent
+    ConfigstyleComponent,
+    CiudadesComponent,
+    PaisesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule
   ],
   providers: [],
