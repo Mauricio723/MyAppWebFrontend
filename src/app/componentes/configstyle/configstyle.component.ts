@@ -31,6 +31,39 @@ export class ConfigstyleComponent implements OnInit {
   checkedInputOscuro: boolean = false;
   checkedInputClaro: boolean = true;
 
+  // Pruebas con configuración - si funciona modificar el resto - si no borrar
+
+  //myMap_01 = new Map();    // creo un map para los tipos de colores del documento
+
+  //colorSelecInputPrueba: string;
+
+  //elementoParaModificarColor: string;
+
+  /*
+  coloresDocObjeto = {
+    color_doc_obj_01 : "color documento 01",
+    color_doc_obj_02 : "color documento 02",
+    color_doc_obj_03 : "color documento 03",
+    color_doc_obj_04 : "color documento 04"
+  }
+  */
+
+  // Otras pruebas - con bordes seleccionados
+
+  mostrarEspacioConfiguracion : boolean;
+
+  estiloBordeElemento_01: string;
+  estiloBordeElemento_02: string;
+  estiloBordeElemento_03: string;
+  estiloBordeElemento_04: string;
+
+  elementoConBordeSeleccionado: string;
+
+  colorSeleccionadoConBorde: string;
+
+  arrayColores_01: string[] = ["#000000", "#ffffff", "#000000", "#ffffff", 
+                               "#000000", "#ffffff", "#000000", "#ffffff"];
+
   constructor() {
 
 
@@ -48,10 +81,31 @@ export class ConfigstyleComponent implements OnInit {
 
     this.sizeTextoNuevo = "1em";
 
+    // Pruebas con configuración - si funciona modificar el resto - si no borrar
+
+    
+
+    //this.colorSelecInputPrueba = "rgb(200,200,200)";
+
+    //this.elementoParaModificarColor = "color_doc_01";
+
+    // nuevas pruebas - con bordes seleccionados
+
+    this.mostrarEspacioConfiguracion = false;
+
+    this.estiloBordeElemento_01 = "1px solid black";
+    this.estiloBordeElemento_02 = "1px solid black";
+    this.estiloBordeElemento_03 = "1px solid black";
+    this.estiloBordeElemento_04 = "1px solid black";
+
+    this.elementoConBordeSeleccionado = "";
+
+    this.colorSeleccionadoConBorde = "#000000";
+
+
   }
 
   ngOnInit(): void {
-
 
     this.rootVariableStyle = document.documentElement;
 
@@ -165,5 +219,71 @@ export class ConfigstyleComponent implements OnInit {
     this.botonConfiguracionDesabilitado = false;
   }
 
+  // Espacio para prueba de configuración nueva
+  
+  btnEditarColorElemento(elementoSeleccionado: string) {
+
+    this.elementoConBordeSeleccionado = elementoSeleccionado;
+
+
+    if (elementoSeleccionado == "elemento_01") {
+      this.estiloBordeElemento_01 = "2px solid red";
+      this.estiloBordeElemento_02 = "1px solid black";
+      this.estiloBordeElemento_03 = "1px solid black";
+      this.estiloBordeElemento_04 = "1px solid black";
+    }
+    if (elementoSeleccionado == "elemento_02") {
+      this.estiloBordeElemento_01 = "1px solid black";
+      this.estiloBordeElemento_02 = "2px solid red";
+      this.estiloBordeElemento_03 = "1px solid black";
+      this.estiloBordeElemento_04 = "1px solid black";
+    }
+    if (elementoSeleccionado == "elemento_03") {
+      this.estiloBordeElemento_01 = "1px solid black";
+      this.estiloBordeElemento_02 = "1px solid black";
+      this.estiloBordeElemento_03 = "2px solid red";
+      this.estiloBordeElemento_04 = "1px solid black";
+    }
+    if (elementoSeleccionado == "elemento_04") {
+      this.estiloBordeElemento_01 = "1px solid black";
+      this.estiloBordeElemento_02 = "1px solid black";
+      this.estiloBordeElemento_03 = "1px solid black";
+      this.estiloBordeElemento_04 = "2px solid red";
+    }
+
+  }
+
+  establecerColorConBorde(elementoParaModificar: string) {
+
+    if (elementoParaModificar == "elemento_texto_01") {
+      this.rootVariableStyle.style.setProperty("--color_elemento_01", this.arrayColores_01[0]);
+    }
+    if (elementoParaModificar == "elemento_back_01") {
+      this.rootVariableStyle.style.setProperty("--color_back_01", this.arrayColores_01[1]);
+    }
+    if (elementoParaModificar == "elemento_texto_02") {
+      this.rootVariableStyle.style.setProperty("--color_elemento_02", this.arrayColores_01[2]);
+    }
+    if (elementoParaModificar == "elemento_back_02") {
+      this.rootVariableStyle.style.setProperty("--color_back_02", this.arrayColores_01[3]);
+    }
+    if (elementoParaModificar == "elemento_texto_03") {
+      this.rootVariableStyle.style.setProperty("--color_elemento_03", this.arrayColores_01[4]);
+    }
+    if (elementoParaModificar == "elemento_back_03") {
+      this.rootVariableStyle.style.setProperty("--color_back_03", this.arrayColores_01[5]);
+    }
+    if (elementoParaModificar == "elemento_texto_04") {
+      this.rootVariableStyle.style.setProperty("--color_elemento_04", this.arrayColores_01[6]);
+    }
+    if (elementoParaModificar == "elemento_back_04") {
+      this.rootVariableStyle.style.setProperty("--color_back_04", this.arrayColores_01[7]);
+    }
+
+  }
+
+  btnMostrarConfiguracionColores() {
+    this.mostrarEspacioConfiguracion = true;
+  }
 
 }

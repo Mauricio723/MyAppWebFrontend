@@ -1,47 +1,121 @@
-<div class="divPaises01">
+<div class="divPaises01" id="inicioDatosPaises">
 
     <div class="divPaises02">
-        <h3>Paises del mundo - API Countries</h3>
-        <h4>Recurso obtenido de: https://restcountries.com/</h4>
+        <h4 class="text-center">Paises del mundo - API Countries</h4>
+        <h5>Recurso obtenido de: https://restcountries.com/</h5>
     </div>
 
-    <div class="divPaises02">
+    <div class="divPaises02 rounded-3" *ngIf="datosPaises01 == null">
+        <!--
         <button type="button" (click)="btnMostrarPaises()">Mostrar Países</button>
+        -->
+        <a href="#inicioDatosPaises" (click)="mostrarPaises()">
+            <h4 class="">Mostrar Paises</h4>
+        </a>
     </div>
 
+    <!--
+        <div title={{textoTooltip01}} class="colorAbout_02 rounded-3 text-center">
+    <a role="button" (click)="clkBtnMostrarDatos01()" class="">
+     <h4 class="pb-1 texto_h4">Datos Personales</h4>
+    </a>
+  </div>  
+    -->
     <div class="divPaises02">
 
-        <div class="divPaises03">
-            <p>Espacio para mostrar paises</p>
+        <div class="row">
 
-            <div *ngFor="let pais of datosPaises01" class="itemPais01">
-                <a class="" href="#datosPais01" (click)="mostrarPaisPorNombre(pais.name.official)"> {{pais.translations.spa.common}} </a>                                 
+            <div class="col col-sm-12 col-md-6 col-lg-4">
+
+                <div *ngIf="mostrarSeccionPaises" class="divPaises03 listaPaisesConScroll">
+
+                    <div *ngFor="let pais of nombrePaisesOrdenado" class="itemPais01">
+                        <a class="" href="#inicioDescripcionPais" (click)="mostrarPaisPorNombre(pais)">
+                            <!--{{pais.translations.spa.common}}-->
+                            {{pais}}
+                        </a>
+                        <!--   (click)="mostrarPaisPorNombre(pais.name.official)" 
+                             -->
+                    </div>
+
+                </div>
+
             </div>
 
-        </div>
+            <div class="col col-sm-12 col-md-6 col-lg-8">
+                <div class="divPaises03" id="inicioDescripcionPais">
 
-        <div class="divPaises03" id="datosPais01">
-            <p>Datos país Seleccionado </p>
+                    <div class="divPaises04 divEspacioVacio01 divConImagenFondo01" *ngIf="datosPaisPorNombre == null">
+                        <!-- Aquí se muestra una imagen desde css con background-image -->
+                    </div>
 
-            <div *ngIf="datosPaisPorNombre != null" class="divPaises04">
+                    <div *ngIf="datosPaisPorNombre != null" class="divPaises04 descripcionPais">
 
-                <p>Nombre Común : {{datosPaisPorNombre[0].name.common}}</p>
-                <p>Nombre Oficial : {{datosPaisPorNombre[0].name.official}}</p>
-                <p>Capital : {{datosPaisPorNombre[0].capital}}</p>
-                <p>Nombre Común en español : {{datosPaisPorNombre[0].translations.spa.common}}</p>
-                <p>Región : {{datosPaisPorNombre[0].region}}</p>
-                <p>Subregion : {{datosPaisPorNombre[0].subregion}}</p>
-                <p>Latitud : {{datosPaisPorNombre[0].latlng[0]}}</p>
-                <p>Longitud :  {{datosPaisPorNombre[0].latlng[1]}}</p>
-                <p>Mapa GoogleMaps : {{datosPaisPorNombre[0].maps.googleMaps}}</p>
-                <p>Bandera url en png : {{datosPaisPorNombre[0].flags.png}}</p>
-                <p>Bandera url en svg : {{datosPaisPorNombre[0].flags.svg}}</p>
-                <img src={{datosPaisPorNombre[0].flags.png}} alt="Bandera del país">
+                        <h4 class="textoCentrado">{{datosPaisPorNombre[0].translations.spa.common}}</h4>
+
+                        <h5>Nombre Común : {{datosPaisPorNombre[0].name.common}}</h5>
+                        <h5>Nombre Oficial : {{datosPaisPorNombre[0].name.official}}</h5>
+                        <h5>Capital : {{datosPaisPorNombre[0].capital}}</h5>
+                        <h5>Nombre Común en español : {{datosPaisPorNombre[0].translations.spa.common}}</h5>
+                        <h5>Región : {{datosPaisPorNombre[0].region}}</h5>
+                        <h5>Subregion : {{datosPaisPorNombre[0].subregion}}</h5>
+                        <h5>Latitud : {{datosPaisPorNombre[0].latlng[0]}} - Longitud :
+                            {{datosPaisPorNombre[0].latlng[1]}}</h5>
+                        <h5>Mapa GoogleMaps : {{datosPaisPorNombre[0].maps.googleMaps}}</h5>
+                        <h5>Bandera url en png : {{datosPaisPorNombre[0].flags.png}}</h5>
+                        <h5>Bandera url en svg : {{datosPaisPorNombre[0].flags.svg}}</h5>
+
+                        <!--
+                        
+                        <dl>
+                            <dt>Nombre Común :</dt>
+                            <dd>{{datosPaisPorNombre[0].name.common}}</dd>
+
+                            <dt>Nombre Oficial :</dt>
+                            <dd>{{datosPaisPorNombre[0].name.official}}</dd>
+
+                            <dt>Capital : </dt>
+                            <dd>{{datosPaisPorNombre[0].capital}}</dd>
+
+                            <dt>Nombre Común en español :</dt>
+                            <dd>{{datosPaisPorNombre[0].translations.spa.common}}</dd>
+
+                            <dt>Región :</dt>
+                            <dd>{{datosPaisPorNombre[0].region}}</dd>
+
+                            <dt>Subregion :</dt>
+                            <dd>{{datosPaisPorNombre[0].subregion}}</dd>
+
+                            <dt>Latitud : </dt>
+                            <dd>{{datosPaisPorNombre[0].latlng[0]}}</dd>
+
+                            <dt>Longitud :</dt>
+                            <dd>{{datosPaisPorNombre[0].latlng[1]}}</dd>
+
+                            <dt>Mapa GoogleMaps : </dt>
+                            <dd>{{datosPaisPorNombre[0].maps.googleMaps}}</dd>
+
+                            <dt>Bandera url en png :</dt>
+                            <dd>{{datosPaisPorNombre[0].flags.png}}</dd>
+
+                            <dt>Bandera url en svg :</dt>
+                            <dd>{{datosPaisPorNombre[0].flags.svg}}</dd>
+
+                        </dl>
+
+                        -->
+
+                        <div class="divImagenBandera">
+                            <img src={{datosPaisPorNombre[0].flags.png}} alt="Bandera del país">
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
-          
-          
         </div>
-
+      
     </div>
 
 </div>

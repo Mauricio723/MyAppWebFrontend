@@ -20,8 +20,6 @@
     background-color: var(--color_fondo_03, rgb(220,240,230));
     color: var(--color_texto_03, rgb(20,20,20));
 
-    display: inline-block;
-
     margin: 5px;
     padding: 10px;
 

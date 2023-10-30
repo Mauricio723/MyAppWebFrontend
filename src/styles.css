@@ -9,5 +9,15 @@
     --color_texto_02: rgb(40,40,70);
     --color_texto_03: rgb(70,50,40);
 
+    --color_elemento_01: #000000;
+    --color_elemento_02: #000000;
+    --color_elemento_03: #000000;
+    --color_elemento_04: #000000;
+
+    --color_back_01: #ffffff;
+    --color_back_02: #ffffff;
+    --color_back_03: #ffffff;
+    --color_back_04: #ffffff;     
+
     --font_size_01: 1em;
 }

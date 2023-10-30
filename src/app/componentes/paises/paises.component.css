@@ -24,12 +24,15 @@
 
     margin: 5px;
     padding: 10px;
-
     border: 1px solid var(--color_texto_03);
 }
 
-.itemPais01 {
-    display: inline-block;
+.listaPaisesConScroll {
+    max-height: 600px;
+    overflow: scroll;
+}
+
+.itemPais01 {      
 
     background-color: rgb(218, 226, 173);
     min-width: 120px;
@@ -41,3 +44,30 @@
     border: 1px solid var(--color_texto_03);
 
 }
+
+.descripcionPais dt {
+    font-size: 1.1em;
+}
+
+.descripcionPais dd {
+    font-size: 1.1em;
+}
+
+.textoCentrado {
+    text-align: center;
+}
+
+.divEspacioVacio01 {
+    min-height: 200px;
+}
+
+.divImagenBandera {
+    display: inline-block;
+    border: 1px solid black;
+}
+
+/*
+.divConImagenFondo01 {
+    background-image: url("/assets/imagenes_01/Planisferio_paralelos_merid.jpg");
+    
+}  */

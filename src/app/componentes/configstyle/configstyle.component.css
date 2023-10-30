@@ -50,3 +50,37 @@
 .estiloBoton01 {
     margin: 10px;
 }
+
+.estiloElemento_01 {
+    color: var(--color_elemento_01, black);    
+}
+.estiloBack_01 {
+    background-color: var(--color_back_01, yellow);
+}
+.estiloElemento_02 {
+    color: var(--color_elemento_02, blue);
+}
+.estiloBack_02 {
+    background-color: var(--color_back_02, pink);
+}
+.estiloElemento_03 {
+    color: var(--color_elemento_03, red);    
+}
+.estiloBack_03 {
+    background-color: var(--color_back_03, orange);
+}
+.estiloElemento_04 {
+    color: var(--color_elemento_04, green);
+}
+.estiloBack_04 {
+    background-color: var(--color_back_04, white);
+}
+
+/*
+
+    --color_back_01: yellow;
+    --color_back_02: pink;
+    --color_back_03: orange;
+    --color_back_04: white;     
+
+*/
