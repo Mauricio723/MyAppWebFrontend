@@ -41,7 +41,7 @@
                     <option value="rgb(151, 23, 30)">Color oscuro 18</option>
 
                 </select>
-
+              
             </div>
 
             <div class="divConfig04">
@@ -62,7 +62,7 @@
                     <option value="#FEFCFF">Milk White</option>
 
                 </select>
-
+               
             </div>
 
             <div class="divConfig04">
@@ -112,7 +112,7 @@
     <div class="border border-dark mx-1 px-2 py-2">
         <button type="button" (click)="btnMostrarConfiguracionColores()" [disabled]="mostrarEspacioConfiguracion">
             Mostrar configuracion de colores</button>
-    </div>   
+    </div>
 
     <div class="mx-1" *ngIf="mostrarEspacioConfiguracion">
 
@@ -125,7 +125,7 @@
             <div class="row gx-0 my-1" [ngStyle]="{'border': estiloBordeElemento_01}">
 
                 <div class="col-xs-12 col-md-6 estiloBack_01">
-                    <h1 class="estiloElemento_01 px-2 py-2">Color Titulos 01</h1>                    
+                    <h1 class="estiloElemento_01 px-2 py-2">Color Titulos 01</h1>
                 </div>
 
                 <div class="col-xs-12 col-md-6">
@@ -192,7 +192,9 @@
 
                 <div class="col-xs-12 col-md-6 estiloBack_04">
                     <p class="estiloElemento_04 estiloBack_04 ms-2 px-2 py-2">Color párrafos</p>
-                    <ul class="estiloElemento_04 ms-2 px-3 py-2"><li>Color Listas</li></ul>
+                    <ul class="estiloElemento_04 ms-2 px-3 py-2">
+                        <li>Color Listas</li>
+                    </ul>
                 </div>
 
                 <div class="col-sx-12 col-md-6">
@@ -213,6 +215,6 @@
 
         </div>
 
-    </div>  
+    </div>
 
 </div>
