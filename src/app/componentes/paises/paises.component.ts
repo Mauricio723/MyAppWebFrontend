@@ -16,14 +16,19 @@ export class PaisesComponent implements OnInit {
 
   mostrarSeccionPaises : boolean;
 
+  mapaPaises = new Map();
+
+  //arregloPaisesOrdenadoEnEspaniol : any[];
+
   constructor (private servicioMyAppWeb : Myappweb01Service) {
 
     this.mostrarSeccionPaises = false;
 
     this.nombrePaisesOrdenado = [];
 
-  }
+    //this.arregloPaisesOrdenadoEnEspaniol = [];
 
+  }
 
   ngOnInit(): void {
     
@@ -35,24 +40,43 @@ export class PaisesComponent implements OnInit {
       datosApiPaises => {
         this.datosPaises01 = datosApiPaises;
 
-        //console.log(JSON.stringify(this.datosPaises01));
+        //console.log(JSON.stringify(this.datosPaises01[0].translations.spa.common));
+    
+        this.crearMapaConPaises();
 
         this.crearArregloOrdenado();
-      }
-    );
         
+      }
+    );        
 
     this.mostrarSeccionPaises = true;
 
   }
 
+  /*
+  mostrarNombrePaisEnEspaniol() {
+    for (let indice = 0; indice<this.datosPaises01.length; indice++) {
+      console.log(JSON.stringify(this.datosPaises01[indice].translations.spa.common));
+    }
+  }  */
+
+  crearMapaConPaises() {
+    //let mapaPaises = new Map();
+
+    for (let indice=0; indice<this.datosPaises01.length; indice++) {
+
+      this.mapaPaises.set(this.datosPaises01[indice].translations.spa.common, this.datosPaises01[indice].name.official);
+    }
+
+  }
+ 
   crearArregloOrdenado() {
 
     for (let indice = 0; indice < this.datosPaises01.length; indice++) {
-      this.nombrePaisesOrdenado[indice] = this.datosPaises01[indice].name.official;
+      //this.nombrePaisesOrdenado[indice] = this.datosPaises01[indice].name.official;
 
-      //console.log(JSON.stringify(this.nombrePaisesOrdenado[indice]));
-
+      this.nombrePaisesOrdenado[indice] = this.datosPaises01[indice].translations.spa.common;
+      
     }
    
     // ordenamos el arreglo nombrePaisesOrdenado
@@ -66,9 +90,7 @@ export class PaisesComponent implements OnInit {
       }
       return 1;
     });
-
-    //console.log(JSON.stringify(this.nombrePaisesOrdenado));
-
+   
   }
 
   mostrarPaisPorNombre(nombrePais : string) {

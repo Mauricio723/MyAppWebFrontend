@@ -30,12 +30,12 @@
                 <div *ngIf="mostrarSeccionPaises" class="divPaises03 listaPaisesConScroll">
 
                     <div *ngFor="let pais of nombrePaisesOrdenado" class="itemPais01">
-                        <a class="" href="#inicioDescripcionPais" (click)="mostrarPaisPorNombre(pais)">
+                        <a class="" href="#inicioDescripcionPais" (click)="mostrarPaisPorNombre(mapaPaises.get(pais))">
                             <!--{{pais.translations.spa.common}}-->
-                            {{pais}}
+                            {{pais}}  
                         </a>
                         <!--   (click)="mostrarPaisPorNombre(pais.name.official)" 
-                             -->
+                             -->                             
                     </div>
 
                 </div>
@@ -61,7 +61,10 @@
                         <h5>Subregion : {{datosPaisPorNombre[0].subregion}}</h5>
                         <h5>Latitud : {{datosPaisPorNombre[0].latlng[0]}} - Longitud :
                             {{datosPaisPorNombre[0].latlng[1]}}</h5>
-                        <h5>Mapa GoogleMaps : {{datosPaisPorNombre[0].maps.googleMaps}}</h5>
+                        
+                        <a href="{{datosPaisPorNombre[0].maps.googleMaps}}" target="_blank">
+                            <h5>Mapa GoogleMaps : {{datosPaisPorNombre[0].maps.googleMaps}}</h5></a>    
+                        
                         <h5>Bandera url en png : {{datosPaisPorNombre[0].flags.png}}</h5>
                         <h5>Bandera url en svg : {{datosPaisPorNombre[0].flags.svg}}</h5>
 

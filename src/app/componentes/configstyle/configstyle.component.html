@@ -1,111 +1,16 @@
 <div class="divConfig01">
     <h4>Espacio para configuración de estilos de la página</h4>
 
-    <div class="divConfig02">
-        <button (click)="clkBtnConfigurarPagina()" [disabled]="botonConfiguracionDesabilitado">
-            Configurar Página</button>
-    </div>
-
+   
     <div class="divConfig02" *ngIf="mostrarSeccionConfiguracion">
 
         <div class="divConfig03">
             <h5>Configuración de estilos de la página</h5>
         </div>
-
-        <div class="divConfig03">
-
-            <div class="divConfig04">
-
-                <label class="estiloLabel01" for="colorOscuroSelect">{{textoColorOscuro}}</label>
-                <select name="colorOscuroSelect" id="colorOscuroSelect" [(ngModel)]="colorOscuro"
-                    (change)="changeSelectColores()">
-
-                    <option value="rgb(0,0,0)">color oscuro 01</option>
-                    <option value="rgb(19, 4, 3)">Color oscuro 02</option>
-                    <option value="rgb(34, 17, 4)">color oscuro 03</option>
-                    <option value="rgb(56, 29, 8)">Color oscuro 04</option>
-                    <option value="rgb(32, 29, 2)">Color oscuro 05</option>
-                    <option value="rgb(26, 36, 3)">Color oscuro 06</option>
-                    <option value="rgb(54, 73, 8)">Color oscuro 07</option>
-                    <option value="rgb(7, 26, 2)">Color oscuro 08</option>
-                    <option value="rgb(7, 71, 26)">Color oscuro 09</option>
-                    <option value="rgb(5, 34, 46)">Color oscuro 10</option>
-                    <option value="rgb(10, 70, 95)">Color oscuro 11</option>
-                    <option value="rgb(19, 113, 153)">Color oscuro 12</option>
-                    <option value="rgb(5, 15, 49)">Color oscuro 13</option>
-                    <option value="rgb(39, 5, 49)">Color oscuro 14</option>
-                    <option value="rgb(79, 9, 100)">Color oscuro 15</option>
-
-                    <option value="rgb(63, 7, 26)">Color oscuro 16</option>
-                    <option value="rgb(119, 9, 46)">Color oscuro 17</option>
-                    <option value="rgb(151, 23, 30)">Color oscuro 18</option>
-
-                </select>
-              
-            </div>
-
-            <div class="divConfig04">
-
-                <label class="estiloLabel01" for="colorClaroSelect">{{textoColorClaro}}</label>
-                <select name="colorClaroSelect" id="colorClaroSelect" [(ngModel)]="colorClaro"
-                    (change)="changeSelectColores()">
-
-                    <option value="rgb(255,255,255)">Color Claro 01</option>
-                    <option value="#B6B6B4">Gray Cloud</option>
-                    <option value="#D1D0CE">Gray Goose</option>
-                    <option value="#E5E4E2">Platinum</option>
-                    <option value="#BCC6CC">Metallic Silver</option>
-                    <option value="#98AFC7">Blue Gray</option>
-
-                    <option value="#FDEEF4">Pearl</option>
-                    <option value="#FFF5EE">SeaShell</option>
-                    <option value="#FEFCFF">Milk White</option>
-
-                </select>
-               
-            </div>
-
-            <div class="divConfig04">
-
-                <input type="radio" id="fondo_oscuro" name="colores_pagina" value="fondo_oscuro"
-                    (change)="obtenerValorInputRadio('fondo_oscuro')" [checked]="checkedInputOscuro">
-                <label class="estiloLabel01" for="fondo_oscuro">Fondo Oscuro</label><br>
-                <input type="radio" id="fondo_claro" name="colores_pagina" value="fondo_claro"
-                    (change)="obtenerValorInputRadio('fondo_claro')" [checked]="checkedInputClaro">
-                <label class="estiloLabel01" for="fondo_claro">Fondo Claro</label><br>
-
-            </div>
-
-            <div class="divConfig04">
-
-                <label class="estiloLabel01" for="sizeTexto">Tamaño del texto </label>
-                <select name="sizeTexto" id="sizeTexto" (change)="cambiarSizeTexto()" [(ngModel)]="sizeTextoNuevo">
-                    <option value="0.8em">Tamaño texto : 80%</option>
-                    <option value="0.9em">Tamaño texto : 90%</option>
-                    <option value="1em" selected>Tamaño texto : 100%</option>
-                    <option value="1.1em">Tamaño texto : 110%</option>
-                    <option value="1.2em">Tamaño texto : 120%</option>
-                </select>
-
-            </div>
-
-        </div>
-
-        <div class="divConfig03">
-
-            <button class="estiloBoton01" (click)="clkBtnGuardarCambios()">Guardar Preferencias</button>
-            <button class="estiloBoton01" (click)="clkBtnValoresPredeterminados()">Volver a valores
-                predeterminados</button>
-            <button class="estiloBoton01" (click)="clkBtnSalirSinGuardarCambios()">Salir sin guardar
-                cambios</button>
-        </div>
-
+            
     </div>
 
-
 </div>
-
-<!-- ################################################### -->
 
 <div class="container-fluid">
 
@@ -114,18 +19,18 @@
             Mostrar configuracion de colores</button>
     </div>
 
-    <div class="mx-1" *ngIf="mostrarEspacioConfiguracion">
+    <div class="mx-1 border border-dark" *ngIf="mostrarEspacioConfiguracion">
 
         <div class="border border-dark my-2 py-2">
             <h4 class="text-center">Configuración de colores</h4>
         </div>
 
-        <div class="border border-danger px-2 py-2">
+        <div class="px-2 py-2">
 
             <div class="row gx-0 my-1" [ngStyle]="{'border': estiloBordeElemento_01}">
 
-                <div class="col-xs-12 col-md-6 estiloBack_01">
-                    <h1 class="estiloElemento_01 px-2 py-2">Color Titulos 01</h1>
+                <div class="col-xs-12 col-md-6" [ngStyle]="{'background-color': arrayColores_01[1]}">
+                    <h1 class="px-2 py-2" [ngStyle]="{'color': arrayColores_01[0]}">Color Titulos 01</h1>
                 </div>
 
                 <div class="col-xs-12 col-md-6">
@@ -136,10 +41,10 @@
 
                     <div class="mt-2" *ngIf="elementoConBordeSeleccionado == 'elemento_01'">
                         <label class="mx-3">Color Texto</label> <input type="color"
-                            (change)="establecerColorConBorde('elemento_texto_01')" [(ngModel)]="arrayColores_01[0]">
+                             [(ngModel)]="arrayColores_01[0]">
 
                         <label class="mx-3">Color Fondo</label> <input type="color"
-                            (change)="establecerColorConBorde('elemento_back_01')" [(ngModel)]="arrayColores_01[1]">
+                            [(ngModel)]="arrayColores_01[1]">
                     </div>
 
                 </div>
@@ -148,8 +53,8 @@
 
             <div class="row gx-0 my-1" [ngStyle]="{'border': estiloBordeElemento_02}">
 
-                <div class="col-xs-12 col-md-6 estiloBack_02">
-                    <h2 class="estiloElemento_02 px-2 py-2">Color Títulos 02</h2>
+                <div class="col-xs-12 col-md-6" [ngStyle]="{'background-color': arrayColores_01[3]}">
+                    <h2 class="px-2 py-2" [ngStyle]="{'color': arrayColores_01[2]}">Color Títulos 02</h2>
                 </div>
 
                 <div class="col-xs-12 col-md-6">
@@ -160,9 +65,9 @@
 
                     <div class="mt-2" *ngIf="elementoConBordeSeleccionado == 'elemento_02'">
                         <label class="mx-3">Color Texto</label> <input type="color"
-                            (change)="establecerColorConBorde('elemento_texto_02')" [(ngModel)]="arrayColores_01[2]">
+                            [(ngModel)]="arrayColores_01[2]">
                         <label class="mx-3">Color Fondo</label> <input type="color"
-                            (change)="establecerColorConBorde('elemento_back_02')" [(ngModel)]="arrayColores_01[3]">
+                            [(ngModel)]="arrayColores_01[3]">
                     </div>
                 </div>
 
@@ -170,8 +75,8 @@
 
             <div class="row gx-0 my-1" [ngStyle]="{'border': estiloBordeElemento_03}">
 
-                <div class="col-xs-12 col-md-6 estiloBack_03">
-                    <h3 class="estiloElemento_03 px-2 py-2">Color Subtítulos</h3>
+                <div class="col-xs-12 col-md-6" [ngStyle]="{'background-color': arrayColores_01[5]}">
+                    <h3 class="px-2 py-2" [ngStyle]="{'color': arrayColores_01[4]}">Color Subtítulos</h3>
                 </div>
 
                 <div class="col-xs-12 col-md-6">
@@ -180,9 +85,9 @@
                     </div>
                     <div class="mt-2" *ngIf="elementoConBordeSeleccionado == 'elemento_03'">
                         <label class="mx-3">Color Texto</label><input type="color"
-                            (change)="establecerColorConBorde('elemento_texto_03')" [(ngModel)]="arrayColores_01[4]">
+                            [(ngModel)]="arrayColores_01[4]">
                         <label class="mx-3">Color Fondo</label><input type="color"
-                            (change)="establecerColorConBorde('elemento_back_03')" [(ngModel)]="arrayColores_01[5]">
+                            [(ngModel)]="arrayColores_01[5]">
                     </div>
                 </div>
 
@@ -190,9 +95,9 @@
 
             <div class="row gx-0 my-1" [ngStyle]="{'border': estiloBordeElemento_04}">
 
-                <div class="col-xs-12 col-md-6 estiloBack_04">
-                    <p class="estiloElemento_04 estiloBack_04 ms-2 px-2 py-2">Color párrafos</p>
-                    <ul class="estiloElemento_04 ms-2 px-3 py-2">
+                <div class="col-xs-12 col-md-6" [ngStyle]="{'background-color': arrayColores_01[7], 'color': arrayColores_01[6]}">
+                    <p class="ms-2 px-2 py-2">Color párrafos</p>
+                    <ul class="ms-2 px-3 py-2" >
                         <li>Color Listas</li>
                     </ul>
                 </div>
@@ -205,9 +110,9 @@
 
                     <div class="mt-2" *ngIf="elementoConBordeSeleccionado == 'elemento_04'">
                         <label class="mx-3">Color Texto</label> <input type="color"
-                            (change)="establecerColorConBorde('elemento_texto_04')" [(ngModel)]="arrayColores_01[6]">
+                            [(ngModel)]="arrayColores_01[6]">
                         <label class="mx-3">Color Fondo</label><input type="color"
-                            (change)="establecerColorConBorde('elemento_back_04')" [(ngModel)]="arrayColores_01[7]">
+                            [(ngModel)]="arrayColores_01[7]">
                     </div>
                 </div>
 
@@ -215,6 +120,11 @@
 
         </div>
 
+        <div class="mx-2 my-1 px-2 py-1">
+            <button (click)="establecerColoresYGuardarCambios()" class="mx-2">Guardar Cambios y salir</button>
+            <button (click)="establecerValoresPredeterminados()" class="mx-2">Volver a valores predeterminados</button>
+            <button (click)="salirSinGuardarCambios()" class="mx-2">Salir sin guardar Cambios</button>
+        </div>
     </div>
 
 </div>

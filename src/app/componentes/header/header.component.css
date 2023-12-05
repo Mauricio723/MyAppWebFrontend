@@ -4,6 +4,10 @@
     padding: 10px;
     border: 1px solid black;
 }
+.colorTituloVar {
+    background-color: var(--color_back_01, rgb(255, 255, 255));
+    color: var(--color_elemento_01, rgb(0, 0, 0));
+}
 
 .textoCentrado {
     text-align: center;
@@ -12,14 +16,86 @@
 .divFoto01 {
     position: absolute;
     z-index: 20;
-
-    margin-top: 20px;
-    margin-left: 10px;
-    
+    /*
+    margin-top: 200px;
+    margin-left: 20px;
+    */
 }
-
-.fotoMauricio01 {    
-
+/*
+.fotoMauricio01 {  
     border-radius: 70px;
+}
+*/
 
+@media (max-width: 599px) {
+    .posicion_foto {
+        margin-top: 55px;
+        margin-left: 5px;
+    }
+    .fotoMauricio01 {
+        width: 70px;
+        border-radius: 20px;
+    }
+
+}
+@media (min-width: 600px) {
+    .posicion_foto {
+        margin-top: 70px;
+        margin-left: 7px;
+    }
+    .fotoMauricio01 {
+        width: 90px;
+        border-radius: 30px;
+    }
+
+}
+@media (min-width: 700px) {
+    .posicion_foto {
+        margin-top: 80px;
+        margin-left: 9px;
+    }
+    .fotoMauricio01 {
+        width: 100px;
+        border-radius: 40px;
+    }
+}
+@media (min-width: 800px) {
+    .posicion_foto {
+        margin-top: 90;
+        margin-left: 10px;
+    }
+    .fotoMauricio01 {
+        width: 130px;
+        border-radius: 50px;
+    }
+}
+@media (min-width: 900px) {
+    .posicion_foto {
+        margin-top: 100px;
+        margin-left: 18px;
+    }
+    .fotoMauricio01 {
+        width: 140px;
+        border-radius: 60px;
+    }
+}
+@media (min-width: 1000px) {
+    .posicion_foto {
+        margin-top: 120px;
+        margin-left: 12px;
+    }
+    .fotoMauricio01 {
+        width: 150px;
+        border-radius: 70px;
+    }
+}
+@media (min-width: 1200px) {
+    .posicion_foto {
+        margin-top: 160px;
+        margin-left: 15px;
+    }
+    .fotoMauricio01 {
+        width: 170px;
+        border-radius: 80px;
+    }
 }

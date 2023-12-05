@@ -1,0 +1,517 @@
+/* Código de congigstyle.component.ts copiado antes de modificar 4/12/2023 */
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-configstyle',
+  templateUrl: './configstyle.component.html',
+  styleUrls: ['./configstyle.component.css']
+})
+
+export class ConfigstyleComponent implements OnInit {
+
+  mostrarSeccionConfiguracion: boolean = false;
+
+  botonConfiguracionDesabilitado: boolean = false;
+
+
+  colorFondoNuevo: string = "";
+  colorTextoNuevo: string = "";
+
+  rootVariableStyle: any;
+
+  colorOscuro: string;
+  colorClaro: string;
+
+  tipoColorFondo: string;
+
+  textoColorOscuro: String = "";
+  textoColorClaro: String = "";
+
+  sizeTextoNuevo: String;
+
+  checkedInputOscuro: boolean = false;
+  checkedInputClaro: boolean = true;
+
+  // Pruebas con configuración - si funciona modificar el resto - si no borrar
+
+  //myMap_01 = new Map();    // creo un map para los tipos de colores del documento
+
+  //colorSelecInputPrueba: string;
+
+  //elementoParaModificarColor: string;
+
+  /*
+  coloresDocObjeto = {
+    color_doc_obj_01 : "color documento 01",
+    color_doc_obj_02 : "color documento 02",
+    color_doc_obj_03 : "color documento 03",
+    color_doc_obj_04 : "color documento 04"
+  }
+  */
+  // Otras pruebas - con bordes seleccionados
+
+  mostrarEspacioConfiguracion : boolean;
+
+  estiloBordeElemento_01: string;
+  estiloBordeElemento_02: string;
+  estiloBordeElemento_03: string;
+  estiloBordeElemento_04: string;
+
+  elementoConBordeSeleccionado: string;
+
+  colorSeleccionadoConBorde: string;
+
+  arrayColores_01: string[] = ["#000000", "#ffffff", "#000000", "#ffffff", 
+                               "#000000", "#ffffff", "#000000", "#ffffff"];
+
+  constructor() {
+
+
+    this.colorOscuro = "rgb(0,0,0)";
+    this.colorClaro = "rgb(255,255,255)";
+
+
+    this.colorFondoNuevo = "rgb(0,255,0)";
+    this.colorTextoNuevo = "rgb(255,0,255)";
+
+    this.tipoColorFondo = "fondo_claro";
+
+    this.textoColorOscuro = "Color Texto";
+    this.textoColorClaro = "Color Fondo";
+
+    this.sizeTextoNuevo = "1em";
+
+    // Pruebas con configuración - si funciona modificar el resto - si no borrar
+
+    
+
+    //this.colorSelecInputPrueba = "rgb(200,200,200)";
+
+    //this.elementoParaModificarColor = "color_doc_01";
+
+    // nuevas pruebas - con bordes seleccionados
+
+    this.mostrarEspacioConfiguracion = false;
+
+    this.estiloBordeElemento_01 = "1px solid black";
+    this.estiloBordeElemento_02 = "1px solid black";
+    this.estiloBordeElemento_03 = "1px solid black";
+    this.estiloBordeElemento_04 = "1px solid black";
+
+    this.elementoConBordeSeleccionado = "";
+
+    this.colorSeleccionadoConBorde = "#000000";
+
+
+  }
+
+  ngOnInit(): void {
+
+    this.rootVariableStyle = document.documentElement;
+
+    if (sessionStorage.getItem("colorOscuroGuardado") != undefined) {
+      this.colorOscuro = "" + sessionStorage.getItem("colorOscuroGuardado");
+    }
+
+    if (sessionStorage.getItem("colorClaroGuardado") != undefined) {
+      this.colorClaro = "" + sessionStorage.getItem("colorClaroGuardado");
+    }
+
+    if (sessionStorage.getItem("tipoFondoGuardado") != undefined) {
+      this.tipoColorFondo = "" + sessionStorage.getItem("tipoFondoGuardado");
+    }
+
+    this.establecerColoresPagina();
+
+  }
+
+
+  clkBtnConfigurarPagina() {
+    this.mostrarSeccionConfiguracion = true;
+    this.botonConfiguracionDesabilitado = true;
+  }
+
+  obtenerValorInputRadio(tipoFondo: string) {
+
+    this.tipoColorFondo = tipoFondo;
+    this.establecerCheckedInput();
+    this.establecerColoresPagina();
+
+  }
+
+  establecerCheckedInput() {
+    if (this.tipoColorFondo === "fondo_oscuro") {
+      this.checkedInputOscuro = true;
+      this.checkedInputClaro = false;
+    }
+    if (this.tipoColorFondo === "fondo_claro") {
+      this.checkedInputOscuro = false;
+      this.checkedInputClaro = true;
+    }
+  }
+
+  establecerColoresPagina() {
+
+    if (this.tipoColorFondo === "fondo_oscuro") {
+      this.checkedInputOscuro = true;
+      this.checkedInputClaro = false;
+      this.colorFondoNuevo = this.colorOscuro;
+      this.colorTextoNuevo = this.colorClaro;
+      this.textoColorOscuro = "Color Fondo";
+      this.textoColorClaro = "Color Texto";
+    }
+
+    if (this.tipoColorFondo === "fondo_claro") {
+      this.checkedInputOscuro = false;
+      this.checkedInputClaro = true;
+      this.colorFondoNuevo = this.colorClaro;
+      this.colorTextoNuevo = this.colorOscuro;
+      this.textoColorClaro = "Color Fondo";
+      this.textoColorOscuro = "Color Texto";
+    }
+
+    this.rootVariableStyle.style.setProperty("--color_fondo_03", this.colorFondoNuevo);
+
+    this.rootVariableStyle.style.setProperty("--color_texto_03", this.colorTextoNuevo);
+
+  }
+
+  changeSelectColores() {
+    this.establecerColoresPagina();
+  }
+
+  cambiarSizeTexto() {
+
+    this.rootVariableStyle.style.setProperty("--size_texto_01", this.sizeTextoNuevo);
+
+  }
+
+  clkBtnGuardarCambios() {
+
+    sessionStorage.setItem("colorOscuroGuardado", this.colorOscuro);
+    sessionStorage.setItem("colorClaroGuardado", this.colorClaro);
+    sessionStorage.setItem("tipoFondoGuardado", this.tipoColorFondo);
+
+    this.mostrarSeccionConfiguracion = false;
+    this.botonConfiguracionDesabilitado = false;
+
+  }
+
+  clkBtnValoresPredeterminados() {
+
+    sessionStorage.removeItem("colorOscuroGuardado");
+    sessionStorage.removeItem("colorClaroGuardado");
+    sessionStorage.removeItem("tipoFondoGuardado");
+
+    this.colorOscuro = "#000000";
+    this.colorClaro = "#FFFFFF";
+    this.tipoColorFondo = "fondo_claro";
+
+    this.establecerColoresPagina();
+
+    this.mostrarSeccionConfiguracion = false;
+    this.botonConfiguracionDesabilitado = false;
+
+  }
+
+  clkBtnSalirSinGuardarCambios() {
+    this.mostrarSeccionConfiguracion = false;
+    this.botonConfiguracionDesabilitado = false;
+  }
+
+  // Espacio para prueba de configuración nueva
+  
+  btnEditarColorElemento(elementoSeleccionado: string) {
+
+    this.elementoConBordeSeleccionado = elementoSeleccionado;
+
+
+    if (elementoSeleccionado == "elemento_01") {
+      this.estiloBordeElemento_01 = "2px solid red";
+      this.estiloBordeElemento_02 = "1px solid black";
+      this.estiloBordeElemento_03 = "1px solid black";
+      this.estiloBordeElemento_04 = "1px solid black";
+    }
+    if (elementoSeleccionado == "elemento_02") {
+      this.estiloBordeElemento_01 = "1px solid black";
+      this.estiloBordeElemento_02 = "2px solid red";
+      this.estiloBordeElemento_03 = "1px solid black";
+      this.estiloBordeElemento_04 = "1px solid black";
+    }
+    if (elementoSeleccionado == "elemento_03") {
+      this.estiloBordeElemento_01 = "1px solid black";
+      this.estiloBordeElemento_02 = "1px solid black";
+      this.estiloBordeElemento_03 = "2px solid red";
+      this.estiloBordeElemento_04 = "1px solid black";
+    }
+    if (elementoSeleccionado == "elemento_04") {
+      this.estiloBordeElemento_01 = "1px solid black";
+      this.estiloBordeElemento_02 = "1px solid black";
+      this.estiloBordeElemento_03 = "1px solid black";
+      this.estiloBordeElemento_04 = "2px solid red";
+    }
+
+  }
+
+  establecerColorConBorde(elementoParaModificar: string) {
+
+    if (elementoParaModificar == "elemento_texto_01") {
+      this.rootVariableStyle.style.setProperty("--color_elemento_01", this.arrayColores_01[0]);
+    }
+    if (elementoParaModificar == "elemento_back_01") {
+      this.rootVariableStyle.style.setProperty("--color_back_01", this.arrayColores_01[1]);
+    }
+    if (elementoParaModificar == "elemento_texto_02") {
+      this.rootVariableStyle.style.setProperty("--color_elemento_02", this.arrayColores_01[2]);
+    }
+    if (elementoParaModificar == "elemento_back_02") {
+      this.rootVariableStyle.style.setProperty("--color_back_02", this.arrayColores_01[3]);
+    }
+    if (elementoParaModificar == "elemento_texto_03") {
+      this.rootVariableStyle.style.setProperty("--color_elemento_03", this.arrayColores_01[4]);
+    }
+    if (elementoParaModificar == "elemento_back_03") {
+      this.rootVariableStyle.style.setProperty("--color_back_03", this.arrayColores_01[5]);
+    }
+    if (elementoParaModificar == "elemento_texto_04") {
+      this.rootVariableStyle.style.setProperty("--color_elemento_04", this.arrayColores_01[6]);
+    }
+    if (elementoParaModificar == "elemento_back_04") {
+      this.rootVariableStyle.style.setProperty("--color_back_04", this.arrayColores_01[7]);
+    }
+
+  }
+
+  btnMostrarConfiguracionColores() {
+    this.mostrarEspacioConfiguracion = true;
+  }
+
+}
+
+// ###################################################
+
+Código de configStyle.comonent.html
+
+<div class="divConfig01">
+    <h4>Espacio para configuración de estilos de la página</h4>
+
+    <div class="divConfig02">
+        <button (click)="clkBtnConfigurarPagina()" [disabled]="botonConfiguracionDesabilitado">
+            Configurar Página</button>
+    </div>
+
+    <div class="divConfig02" *ngIf="mostrarSeccionConfiguracion">
+
+        <div class="divConfig03">
+            <h5>Configuración de estilos de la página</h5>
+        </div>
+
+        <div class="divConfig03">
+
+            <div class="divConfig04">
+
+                <label class="estiloLabel01" for="colorOscuroSelect">{{textoColorOscuro}}</label>
+                <select name="colorOscuroSelect" id="colorOscuroSelect" [(ngModel)]="colorOscuro"
+                    (change)="changeSelectColores()">
+
+                    <option value="rgb(0,0,0)">color oscuro 01</option>
+                    <option value="rgb(19, 4, 3)">Color oscuro 02</option>
+                    <option value="rgb(34, 17, 4)">color oscuro 03</option>
+                    <option value="rgb(56, 29, 8)">Color oscuro 04</option>
+                    <option value="rgb(32, 29, 2)">Color oscuro 05</option>
+                    <option value="rgb(26, 36, 3)">Color oscuro 06</option>
+                    <option value="rgb(54, 73, 8)">Color oscuro 07</option>
+                    <option value="rgb(7, 26, 2)">Color oscuro 08</option>
+                    <option value="rgb(7, 71, 26)">Color oscuro 09</option>
+                    <option value="rgb(5, 34, 46)">Color oscuro 10</option>
+                    <option value="rgb(10, 70, 95)">Color oscuro 11</option>
+                    <option value="rgb(19, 113, 153)">Color oscuro 12</option>
+                    <option value="rgb(5, 15, 49)">Color oscuro 13</option>
+                    <option value="rgb(39, 5, 49)">Color oscuro 14</option>
+                    <option value="rgb(79, 9, 100)">Color oscuro 15</option>
+
+                    <option value="rgb(63, 7, 26)">Color oscuro 16</option>
+                    <option value="rgb(119, 9, 46)">Color oscuro 17</option>
+                    <option value="rgb(151, 23, 30)">Color oscuro 18</option>
+
+                </select>
+              
+            </div>
+
+            <div class="divConfig04">
+
+                <label class="estiloLabel01" for="colorClaroSelect">{{textoColorClaro}}</label>
+                <select name="colorClaroSelect" id="colorClaroSelect" [(ngModel)]="colorClaro"
+                    (change)="changeSelectColores()">
+
+                    <option value="rgb(255,255,255)">Color Claro 01</option>
+                    <option value="#B6B6B4">Gray Cloud</option>
+                    <option value="#D1D0CE">Gray Goose</option>
+                    <option value="#E5E4E2">Platinum</option>
+                    <option value="#BCC6CC">Metallic Silver</option>
+                    <option value="#98AFC7">Blue Gray</option>
+                    <option value="#FDEEF4">Pearl</option>
+                    <option value="#FFF5EE">SeaShell</option>
+                    <option value="#FEFCFF">Milk White</option>
+
+                </select>
+               
+            </div>
+
+            <div class="divConfig04">
+
+                <input type="radio" id="fondo_oscuro" name="colores_pagina" value="fondo_oscuro"
+                    (change)="obtenerValorInputRadio('fondo_oscuro')" [checked]="checkedInputOscuro">
+                <label class="estiloLabel01" for="fondo_oscuro">Fondo Oscuro</label><br>
+                <input type="radio" id="fondo_claro" name="colores_pagina" value="fondo_claro"
+                    (change)="obtenerValorInputRadio('fondo_claro')" [checked]="checkedInputClaro">
+                <label class="estiloLabel01" for="fondo_claro">Fondo Claro</label><br>
+
+            </div>
+
+            <div class="divConfig04">
+
+                <label class="estiloLabel01" for="sizeTexto">Tamaño del texto </label>
+                <select name="sizeTexto" id="sizeTexto" (change)="cambiarSizeTexto()" [(ngModel)]="sizeTextoNuevo">
+                    <option value="0.8em">Tamaño texto : 80%</option>
+                    <option value="0.9em">Tamaño texto : 90%</option>
+                    <option value="1em" selected>Tamaño texto : 100%</option>
+                    <option value="1.1em">Tamaño texto : 110%</option>
+                    <option value="1.2em">Tamaño texto : 120%</option>
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="divConfig03">
+
+            <button class="estiloBoton01" (click)="clkBtnGuardarCambios()">Guardar Preferencias</button>
+            <button class="estiloBoton01" (click)="clkBtnValoresPredeterminados()">Volver a valores
+                predeterminados</button>
+            <button class="estiloBoton01" (click)="clkBtnSalirSinGuardarCambios()">Salir sin guardar
+                cambios</button>
+        </div>
+
+    </div>
+
+
+</div>
+
+<!-- ######################### Sección en prueba ########################## -->
+
+<div class="container-fluid">
+
+    <div class="border border-dark mx-1 px-2 py-2">
+        <button type="button" (click)="btnMostrarConfiguracionColores()" [disabled]="mostrarEspacioConfiguracion">
+            Mostrar configuracion de colores</button>
+    </div>
+
+    <div class="mx-1" *ngIf="mostrarEspacioConfiguracion">
+
+        <div class="border border-dark my-2 py-2">
+            <h4 class="text-center">Configuración de colores</h4>
+        </div>
+
+        <div class="border border-danger px-2 py-2">
+
+            <div class="row gx-0 my-1" [ngStyle]="{'border': estiloBordeElemento_01}">
+
+                <div class="col-xs-12 col-md-6 estiloBack_01">
+                    <h1 class="estiloElemento_01 px-2 py-2">Color Titulos 01</h1>
+                </div>
+
+                <div class="col-xs-12 col-md-6">
+
+                    <div class="mx-2 my-2 px-2 py-2" *ngIf="elementoConBordeSeleccionado != 'elemento_01'">
+                        <button type="button" (click)="btnEditarColorElemento('elemento_01')">editar color</button>
+                    </div>
+
+                    <div class="mt-2" *ngIf="elementoConBordeSeleccionado == 'elemento_01'">
+                        <label class="mx-3">Color Texto</label> <input type="color"
+                            (change)="establecerColorConBorde('elemento_texto_01')" [(ngModel)]="arrayColores_01[0]">
+
+                        <label class="mx-3">Color Fondo</label> <input type="color"
+                            (change)="establecerColorConBorde('elemento_back_01')" [(ngModel)]="arrayColores_01[1]">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row gx-0 my-1" [ngStyle]="{'border': estiloBordeElemento_02}">
+
+                <div class="col-xs-12 col-md-6 estiloBack_02">
+                    <h2 class="estiloElemento_02 px-2 py-2">Color Títulos 02</h2>
+                </div>
+
+                <div class="col-xs-12 col-md-6">
+
+                    <div class="mx-2 my-2 px-2 py-2" *ngIf="elementoConBordeSeleccionado != 'elemento_02'">
+                        <button type="button" (click)="btnEditarColorElemento('elemento_02')">editar color</button>
+                    </div>
+
+                    <div class="mt-2" *ngIf="elementoConBordeSeleccionado == 'elemento_02'">
+                        <label class="mx-3">Color Texto</label> <input type="color"
+                            (change)="establecerColorConBorde('elemento_texto_02')" [(ngModel)]="arrayColores_01[2]">
+                        <label class="mx-3">Color Fondo</label> <input type="color"
+                            (change)="establecerColorConBorde('elemento_back_02')" [(ngModel)]="arrayColores_01[3]">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row gx-0 my-1" [ngStyle]="{'border': estiloBordeElemento_03}">
+
+                <div class="col-xs-12 col-md-6 estiloBack_03">
+                    <h3 class="estiloElemento_03 px-2 py-2">Color Subtítulos</h3>
+                </div>
+
+                <div class="col-xs-12 col-md-6">
+                    <div class="mx-2 my-2 px-2 py-2" *ngIf="elementoConBordeSeleccionado != 'elemento_03'">
+                        <button type="button" (click)="btnEditarColorElemento('elemento_03')">editar color</button>
+                    </div>
+                    <div class="mt-2" *ngIf="elementoConBordeSeleccionado == 'elemento_03'">
+                        <label class="mx-3">Color Texto</label><input type="color"
+                            (change)="establecerColorConBorde('elemento_texto_03')" [(ngModel)]="arrayColores_01[4]">
+                        <label class="mx-3">Color Fondo</label><input type="color"
+                            (change)="establecerColorConBorde('elemento_back_03')" [(ngModel)]="arrayColores_01[5]">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row gx-0 my-1" [ngStyle]="{'border': estiloBordeElemento_04}">
+
+                <div class="col-xs-12 col-md-6 estiloBack_04">
+                    <p class="estiloElemento_04 estiloBack_04 ms-2 px-2 py-2">Color párrafos</p>
+                    <ul class="estiloElemento_04 ms-2 px-3 py-2">
+                        <li>Color Listas</li>
+                    </ul>
+                </div>
+
+                <div class="col-sx-12 col-md-6">
+
+                    <div class="mx-2 my-2 px-2 py-2" *ngIf="elementoConBordeSeleccionado != 'elemento_04'">
+                        <button type="button" (click)="btnEditarColorElemento('elemento_04')">editar color</button>
+                    </div>
+
+                    <div class="mt-2" *ngIf="elementoConBordeSeleccionado == 'elemento_04'">
+                        <label class="mx-3">Color Texto</label> <input type="color"
+                            (change)="establecerColorConBorde('elemento_texto_04')" [(ngModel)]="arrayColores_01[6]">
+                        <label class="mx-3">Color Fondo</label><input type="color"
+                            (change)="establecerColorConBorde('elemento_back_04')" [(ngModel)]="arrayColores_01[7]">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div>
+            <button (click)="salirSinGuardarCambios()">Salir sin guardar Cambios</button>
+        </div>
+    </div>
+
+</div>

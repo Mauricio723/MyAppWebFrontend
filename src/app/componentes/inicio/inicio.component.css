@@ -16,10 +16,19 @@
 }
 
 .divInicio02 {
+    /*
     background-color: var(--color_fondo_03, "rgb(210,210,210");
     color: var(--color_texto_03, "rgb(30,30,30)");
-    
+    */
     margin: 5px;
     padding: 10px;
     border: 1px solid black;
+}
+.colorSubtituloInicio {
+    background-color: var(--color_back_03, "yellow");
+    color: var(--color_elemento_03, "green");
+}
+.colorParrafoInicio {
+    background-color: var(--color_back_04, "blue");
+    color: var(--color_elemento_04, "pink");
 }
