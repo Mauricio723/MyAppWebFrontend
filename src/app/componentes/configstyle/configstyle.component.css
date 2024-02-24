@@ -7,6 +7,8 @@
 */
 
 .divConfig01 {
+
+    background-color: var(--color_fondo_alfa_01, rgba(115, 197, 183, 0.548));
     
     margin: 5px;
     padding: 10px;
@@ -15,7 +17,7 @@
 }
 
 .divConfig02 {
-    background-color: var(--color_fondo_01, "rgb(230,230,230)");
+    background-color: var(--color_back_03, rgba(230, 230, 230, 0.774));
 
     margin: 5px;
     padding: 10px;
@@ -23,17 +25,18 @@
 }
 
 .divConfig03 {
-    background-color: var(--color_fondo_02, "rgb(240,250,22)");
+    background-color: var(--color_back_04, rgb(229, 230, 212));
     
     margin: 5px;
     padding: 10px;
     border: 1px solid rgb(219, 216, 41);
 }
 
+/*
 .divConfig04 {
 
-    background-color: var(--color_fondo_03, "rgb(200,200,200)");
-    color: var(--color_texto_03, "rgb(10,10,10)");
+    background-color: var(--color_fondo_03, rgb(194, 45, 45));
+    color: var(--color_texto_03, rgb(10,10,10));
 
     display: inline-block;
 
@@ -41,7 +44,7 @@
     padding: 10px;
     border: 1px solid rgb(185, 48, 14);
 }
-
+*/
 
 .estiloLabel01 {    
     margin: 10px;

@@ -9,11 +9,12 @@
         <!--
         <button type="button" (click)="btnMostrarPaises()">Mostrar Países</button>
         -->
-        <a href="#inicioDatosPaises" (click)="mostrarPaises()">
+        <a class="btn" (click)="mostrarPaises()">
             <h4 class="">Mostrar Paises</h4>
         </a>
     </div>
 
+    
     <!--
         <div title={{textoTooltip01}} class="colorAbout_02 rounded-3 text-center">
     <a role="button" (click)="clkBtnMostrarDatos01()" class="">
@@ -30,7 +31,7 @@
                 <div *ngIf="mostrarSeccionPaises" class="divPaises03 listaPaisesConScroll">
 
                     <div *ngFor="let pais of nombrePaisesOrdenado" class="itemPais01">
-                        <a class="" href="#inicioDescripcionPais" (click)="mostrarPaisPorNombre(mapaPaises.get(pais))">
+                        <a class="btn" (click)="mostrarPaisPorNombre(mapaPaises.get(pais))">
                             <!--{{pais.translations.spa.common}}-->
                             {{pais}}  
                         </a>

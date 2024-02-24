@@ -1,6 +1,13 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
+
+const httpOptions = {
+  headers: new HttpHeaders({
+'Content-Type':'application/json'
+})
+}
 
 @Injectable({
   providedIn: 'root'
@@ -33,4 +40,10 @@ export class Myappweb01Service {
     return this.myHttp.get<any>("https://restcountries.com/v3.1/all?fields=name,capital,currencies");
   }
 
+  // ########## Sección para servicios de la tabla periódica  ##################
+
+  obtenerElementosTablaPeriodica(): Observable<any> {
+    return this.myHttp.get<any>("/assets/datosTablaPeriodica/elementosTabla.json");
+  }
+  
 }

@@ -1,0 +1,30 @@
+
+<div class="div_fisica_quimica_01 mx-1 my-2 px-2 py-2">
+
+    <div class="div_fisica_quimica_02 px-2 py-2">
+        <h2>Espacio para Física & Química</h2>
+    </div>
+
+    <div class="container-fluid div_fisica_quimica_02">
+
+        <div class="row">
+            <div class="col-lg-3 div_col_left_01">
+                <h6>Espacio para navegar</h6>
+                <h6>por física & química</h6>
+
+                <ol>
+                    <li><a class="btn" (click)="btn_mostrarTabla()">Tabla periódica</a></li>
+                </ol>
+            </div>
+
+            <div class="col-lg-9 div_col_right_01">
+
+                <div *ngIf="mostrarTablaPeriodica">
+                    <app-tablaperiod></app-tablaperiod>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+</div>

@@ -1,21 +1,22 @@
 .divPaises01 {
-    background-color: var(--color_fondo_01);
+    background-color: var(--color_fondo_alfa_01, rgba(100, 200, 210, 0.5));
 
     margin: 5px;
     padding: 10px;
+
 }
 
 .divPaises02 {
-    background-color: var(--color_fondo_02);
-    color: var(--color_texto_02);
+    background-color: var(--color_back_02);
+    color: var(--color_elemento_02);
 
     margin: 5px;
     padding: 10px;
 }
 
 .divPaises03 {
-    background-color: var(--color_fondo_03);
-    color: var(--color_texto_03);
+    background-color: var(--color_back_03, rgb(200, 200, 200));
+    color: var(--color_elemento_03, rgb(20, 20, 20));
     margin: 5px;
     padding: 10px;
 }
@@ -24,7 +25,7 @@
 
     margin: 5px;
     padding: 10px;
-    border: 1px solid var(--color_texto_03);
+    border: 1px solid var(--color_elemento_03, rgb(20, 20, 20));
 }
 
 .listaPaisesConScroll {
@@ -41,7 +42,7 @@
     padding: 10px;
 
     text-align: center;
-    border: 1px solid var(--color_texto_03);
+    border: 1px solid var(--color_elemento_03, rgb(20, 20, 20));
 
 }
 

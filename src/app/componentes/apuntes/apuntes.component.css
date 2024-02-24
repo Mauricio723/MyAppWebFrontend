@@ -1,0 +1,17 @@
+.div_apuntes_01 {
+    background-color: var(--color_fondo_alfa_01);
+    
+}
+
+.div_apuntes_02 {
+    background-color: var(--color_back_02, rgb(20, 20, 20));
+}
+
+.div_apuntes_col_left_01 {
+    background-color: var(--color_back_02, rgb(200, 190, 200));
+    color: var(--color_elemento_02, rgb(20, 20, 20));
+}
+.div_apuntes_col_right_01 {
+    background-color: var(--color_back_03, rgb(160, 180, 200));
+    color: var(--color_elemento_03, rgb(30, 50, 70));
+}

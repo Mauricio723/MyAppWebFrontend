@@ -1,24 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
 
-:root {    
+:root {   
+
+    --color_fondo_alfa_01: rgba(70, 137, 199, 0.397);
+    
+    /* 
     --color_fondo_01: rgb(69, 95, 71);
     --color_fondo_02: rgb(200,220,200);
     --color_fondo_03: rgb(220,230,240);
-
     --color_texto_01: rgb(0,0,0);
     --color_texto_02: rgb(40,40,70);
     --color_texto_03: rgb(70,50,40);
+    */
+    --color_elemento_01: #c4b69f;
+    --color_elemento_02: #bed0d3;
+    --color_elemento_03: #30420e;
+    --color_elemento_04: #0a1b2e;
 
-    --color_elemento_01: #000000;
-    --color_elemento_02: #000000;
-    --color_elemento_03: #000000;
-    --color_elemento_04: #000000;
+    --color_back_01: #3969857e;
+    --color_back_02: #759cc09c;
+    --color_back_03: #cedbe0b4;
+    --color_back_04: #ddd2c5ce;     
+    
+    --font_size_01: 1.1em;    
+    --font_size_02: 1.3em;
+    --font_size_03: 1.5em;
+    --font_size_04: 1.7em;
+    --font_size_05: 1.9em;
+    --font_size_06: 2.1em;
 
-    --color_back_01: #ffffff;
-    --color_back_02: #ffffff;
-    --color_back_03: #ffffff;
-    --color_back_04: #ffffff;     
-
-    --font_size_01: 1em;
 }
 

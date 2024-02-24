@@ -10,6 +10,8 @@
 }
 
 .divInicio01 {
+    background-color: var(--color_fondo_alfa_01, rgba(30, 40, 50, 1));
+
     margin: 5px;
     padding: 10px;
     border: 1px solid black;
@@ -23,7 +25,11 @@
     margin: 5px;
     padding: 10px;
     border: 1px solid black;
+
+    font-size: var(--font_size_01);
+
 }
+
 .colorSubtituloInicio {
     background-color: var(--color_back_03, "yellow");
     color: var(--color_elemento_03, "green");

@@ -1,12 +1,19 @@
 
 .estiloFooter {
+
+    background-color: var(--color_fondo_alfa_01, rgba(54, 54, 179, 0.5));
+
     margin: 5px;
     padding: 10px;
     border: 1px solid black;
 }
 
 .divFooter01 {
+    
+    background-color: var(--color_back_04);
+    color: var(--color_elemento_04);
+    
     margin: 5px;
     padding: 10px;
-    border: 1px solid black;
+    border: 1px solid rgb(24, 71, 65);
 }

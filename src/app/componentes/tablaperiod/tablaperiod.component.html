@@ -1,0 +1,70 @@
+<div class="border mx-1 my-1 px-2 py-2">
+
+    <div class="text-center mx-1 my-1 px-1 py-1 border">
+        <h2>Elementos de la tabla periódica</h2>
+    </div>
+ 
+    <div *ngIf="datosTablaPeriodica">
+
+        <div class="row">
+
+            <div *ngFor="let datoTabla of datosTablaPeriodica.elements" class="col-3 border border-danger">
+
+                <div class="border mx-1 my-1 px-2 py-1">
+                   
+                    <button type="button" (click)="abrir_modal_01(datoTabla.number)" class="btn btn-secondary" 
+                    style="width: 90%;height: 60px;">
+                        {{datoTabla.number}} - {{datoTabla.name}}
+                    </button>
+                  
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div *ngIf="datosTablaPeriodica">
+
+        <!-- Modal con elemento dialog -->
+
+        <dialog id="modal_01" #modal_01 class="estilo_dialog_01 rounded-3">
+            <div class="mx-1 my-1 px-1 py-1">
+                <div class="row gx-0">
+                    <div class="col-8">
+                        <h3>
+                            {{datosTablaPeriodica.elements[elementoTablaSeleccionado].number}}
+                        </h3>
+                    </div>
+                    <div class="col-4">
+                        <h1>
+                            {{datosTablaPeriodica.elements[elementoTablaSeleccionado].symbol}}
+                        </h1>
+                    </div>
+                </div>
+                <div class="">
+                    <h4 class="text-center">{{datosTablaPeriodica.elements[elementoTablaSeleccionado].name}}</h4>
+                </div>
+                <div class="mx-1 my-1 px-1 py-1">
+                    <h6>Nombre : {{datosTablaPeriodica.elements[elementoTablaSeleccionado].name}}</h6>                   
+                    <h6>Peso Atómico: {{datosTablaPeriodica.elements[elementoTablaSeleccionado].atomic_mass}}</h6>
+                    <h6>boil: {{datosTablaPeriodica.elements[elementoTablaSeleccionado].boil}}</h6>
+                    <h6>Categoría : {{datosTablaPeriodica.elements[elementoTablaSeleccionado].category}}</h6>
+                    <h6>Densidad : {{datosTablaPeriodica.elements[elementoTablaSeleccionado].density}} Kg/m3</h6>
+                    <h6>melt: {{datosTablaPeriodica.elements[elementoTablaSeleccionado].melt}}</h6>
+                    <h6>molar_heat: {{datosTablaPeriodica.elements[elementoTablaSeleccionado].molar_heat}}</h6>
+                    <h6>period: {{datosTablaPeriodica.elements[elementoTablaSeleccionado].period}}</h6>
+                    <h6>phase: {{datosTablaPeriodica.elements[elementoTablaSeleccionado].phase}}</h6>
+                </div>
+                <div class="text-end py-1 pe-2">
+                    <button (click)="cerrar_modal_01()">Cerrar</button>
+                </div>                
+            </div>
+        </dialog>
+
+        <!-- Final Modal con elemento dialog -->
+       
+    </div>
+
+</div>

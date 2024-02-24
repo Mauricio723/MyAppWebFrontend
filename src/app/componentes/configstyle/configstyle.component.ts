@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-configstyle',
@@ -11,10 +12,10 @@ export class ConfigstyleComponent implements OnInit {
   mostrarSeccionConfiguracion: boolean = false;
 
   rootVariableStyle: any;
- 
+
   sizeTextoNuevo: String;
- 
-  mostrarEspacioConfiguracion: boolean;
+
+  //mostrarEspacioConfiguracion: boolean;
 
   estiloBordeElemento_01: string;
   estiloBordeElemento_02: string;
@@ -28,11 +29,19 @@ export class ConfigstyleComponent implements OnInit {
   arrayColores_01: string[] = ["#000000", "#ffffff", "#000000", "#ffffff",
     "#000000", "#ffffff", "#000000", "#ffffff"];
 
-  constructor() {
-   
+  // Variables para el tamaño de texto
+
+  anchoNavegador: number;
+  fontSizeSelect: string;
+  fontSizeNuevo: string;
+  fontSizeRelativo: number;
+  fontSizePorAnchoNavegador: number;
+
+  constructor(private myRouter: Router) {
+
     this.sizeTextoNuevo = "1em";
-   
-    this.mostrarEspacioConfiguracion = false;
+
+    //this.mostrarEspacioConfiguracion = false;
 
     this.estiloBordeElemento_01 = "1px solid black";
     this.estiloBordeElemento_02 = "1px solid black";
@@ -43,6 +52,15 @@ export class ConfigstyleComponent implements OnInit {
 
     this.colorSeleccionadoConBorde = "#000000";
 
+    // #########################
+
+    this.fontSizeSelect = "100";
+    this.fontSizeNuevo = "";
+    
+    this.anchoNavegador = 0;   
+    this.fontSizeRelativo = 1;
+    this.fontSizePorAnchoNavegador = 0;
+
   }
 
   ngOnInit(): void {
@@ -50,15 +68,16 @@ export class ConfigstyleComponent implements OnInit {
     this.rootVariableStyle = document.documentElement;
 
     this.verificarSessionStorage();
-   
+
+    this.establecerFontSize();
+    
   }
 
+  /*
   cambiarSizeTexto() {
-
     this.rootVariableStyle.style.setProperty("--size_texto_01", this.sizeTextoNuevo);
-
   }
-
+  */
 
   btnEditarColorElemento(elementoSeleccionado: string) {
 
@@ -95,7 +114,9 @@ export class ConfigstyleComponent implements OnInit {
 
     this.establecerTodosLosColores();
     this.guardarCambiosEnSessionStorage();
-    this.mostrarEspacioConfiguracion = false;
+    //this.mostrarEspacioConfiguracion = false;
+
+    this.myRouter.navigate(["/inicio"]);
 
   }
 
@@ -128,9 +149,11 @@ export class ConfigstyleComponent implements OnInit {
 
   }
 
+  /*
   btnMostrarConfiguracionColores() {
-    this.mostrarEspacioConfiguracion = true;
+    //this.mostrarEspacioConfiguracion = true;
   }
+  */
 
   guardarCambiosEnSessionStorage() {
     sessionStorage.setItem("color_elemento_01", this.arrayColores_01[0]);
@@ -205,7 +228,9 @@ export class ConfigstyleComponent implements OnInit {
 
     this.establecerTodosLosColores();
 
-    this.mostrarEspacioConfiguracion = false;
+    //this.mostrarEspacioConfiguracion = false;
+
+    this.myRouter.navigate(["/inicio"]);
 
   }
 
@@ -223,6 +248,60 @@ export class ConfigstyleComponent implements OnInit {
   }
 
   salirSinGuardarCambios() {
-    this.mostrarEspacioConfiguracion = false;
+    //this.mostrarEspacioConfiguracion = false;
+
+    this.myRouter.navigate(["/inicio"]);
+
   }
+
+  // Tamaños de texto
+
+  establecerFontSize() {
+
+    this.anchoNavegador = window.innerWidth;
+
+    if (this.anchoNavegador <= 200) {
+      this.fontSizePorAnchoNavegador = -30;
+    }
+    if (this.anchoNavegador > 200 && this.anchoNavegador <= 500) {
+      this.fontSizePorAnchoNavegador = -20;
+    }
+    if (this.anchoNavegador > 500 && this.anchoNavegador <= 700) {
+      this.fontSizePorAnchoNavegador = -10;
+    }
+    if (this.anchoNavegador > 700 && this.anchoNavegador <= 900) {
+      this.fontSizePorAnchoNavegador = 0;
+    }
+    if (this.anchoNavegador > 900 && this.anchoNavegador <= 1100) {
+      this.fontSizePorAnchoNavegador = 10;
+    }
+    if (this.anchoNavegador > 1100 && this.anchoNavegador <= 1200) {
+      this.fontSizePorAnchoNavegador = 20;
+    }
+    if (this.anchoNavegador > 1200) {
+      this.fontSizePorAnchoNavegador = 30;
+    }
+
+    this.fontSizeRelativo = this.fontSizePorAnchoNavegador + parseFloat(this.fontSizeSelect);
+
+    this.fontSizeNuevo = "" + (this.fontSizeRelativo) / 100 + "em";
+    this.rootVariableStyle.style.setProperty("--font_size_01", this.fontSizeNuevo);
+
+    this.fontSizeNuevo = "" + (this.fontSizeRelativo + 20) / 100 + "em";
+    this.rootVariableStyle.style.setProperty("--font_size_02", this.fontSizeNuevo);
+
+    this.fontSizeNuevo = "" + (this.fontSizeRelativo + 40) / 100 + "em";
+    this.rootVariableStyle.style.setProperty("--font_size_03", this.fontSizeNuevo);
+
+    this.fontSizeNuevo = "" + (this.fontSizeRelativo + 50) / 100 + "em";
+    this.rootVariableStyle.style.setProperty("--font_size_04", this.fontSizeNuevo);
+
+    this.fontSizeNuevo = "" + (this.fontSizeRelativo + 60) / 100 + "em";
+    this.rootVariableStyle.style.setProperty("--font_size_05", this.fontSizeNuevo);
+
+    this.fontSizeNuevo = "" + (this.fontSizeRelativo + 80) / 100 + "em";
+    this.rootVariableStyle.style.setProperty("--font_size_06", this.fontSizeNuevo);
+
+  }
+
 }

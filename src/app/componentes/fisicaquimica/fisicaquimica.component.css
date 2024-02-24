@@ -1,0 +1,15 @@
+.div_fisica_quimica_01 {
+    background-color: var(--color_fondo_alfa_01, rgb(200, 190, 210));
+}
+.div_fisica_quimica_02 {
+    background-color: var(--color_back_01, rgb(210, 170, 200));
+    color: var(--color_elemento_01, rgb(20, 30, 40));
+}
+.div_col_left_01 {
+    background-color: var(--color_back_02, rgb(200, 190, 200));
+    color: var(--color_elemento_02, rgb(20, 20, 20));
+}
+.div_col_right_01 {
+    background-color: var(--color_back_03, rgb(160, 180, 200));
+    color: var(--color_elemento_03, rgb(30, 50, 70));
+}

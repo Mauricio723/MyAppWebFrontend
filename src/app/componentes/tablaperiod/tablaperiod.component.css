@@ -1,0 +1,17 @@
+.color_modal_01 {
+    background-color: rgb(193, 215, 230);
+}
+.color_modal_02 {
+    background-color: rgb(197, 209, 186);
+    color: rgb(20, 70, 100);
+}
+
+dialog::backdrop {
+    background-color: rgba(91, 105, 112, 0.63);
+}
+
+.estilo_dialog_01 {
+    width: 35%;   
+    background-color: rgb(78, 88, 21);
+    color: rgb(197, 223, 224);
+}
