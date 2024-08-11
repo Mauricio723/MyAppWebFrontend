@@ -1,5 +1,69 @@
-
 .divBody01 {
     background-image: url("/assets/imagenes_01/Flora_Estepa_Patagonica_07.jpg");
 
+}
+
+.fondo_alfa_main_01 {
+    background-color: rgba(30, 107, 94, 0.651);
+}
+
+.aside_main {
+    background-color: rgb(192, 204, 190);
+    color: rgb(38, 66, 71);
+    margin: 10px;
+    padding: 10px;
+}
+
+.item_aside_main:hover {
+    background-color: rgb(38, 66, 71);
+    color: rgb(192, 204, 190);
+    cursor: pointer;
+}
+
+
+@media(max-width: 750px) {
+
+    .div_aside_main {
+        padding: 5px;
+    }
+
+    .item_aside_main {
+        display: inline-block;
+        text-align: center;
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+}
+
+@media(min-width: 750px) {
+
+    .div_aside_main {
+        padding: 5px;
+    }
+
+    .item_aside_main {
+        display: inline-block;
+        text-align: center;
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+}
+
+@media(min-width: 1150px) {
+
+    .div_main_01 {
+        display: grid;
+        grid-template-columns: 4fr 1fr;
+    }
+
+    .div_aside_main {
+        padding: 5px;        
+    }
+
+    .item_aside_main {
+        display: block;
+        text-align: center;
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
 }

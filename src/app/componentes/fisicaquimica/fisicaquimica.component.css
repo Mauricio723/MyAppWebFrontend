@@ -1,15 +1,79 @@
+
+/*
 .div_fisica_quimica_01 {
     background-color: var(--color_fondo_alfa_01, rgb(200, 190, 210));
 }
 .div_fisica_quimica_02 {
     background-color: var(--color_back_01, rgb(210, 170, 200));
     color: var(--color_elemento_01, rgb(20, 30, 40));
+}  
+*/
+
+.estilo_article {
+    background-color: rgb(200, 223, 210);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
 }
-.div_col_left_01 {
-    background-color: var(--color_back_02, rgb(200, 190, 200));
-    color: var(--color_elemento_02, rgb(20, 20, 20));
+.color_titulo_section {
+    background-color:rgba(39, 86, 129, 0.726);
+    color:rgb(204, 223, 202);
 }
-.div_col_right_01 {
-    background-color: var(--color_back_03, rgb(160, 180, 200));
-    color: var(--color_elemento_03, rgb(30, 50, 70));
+.estilo_aside {
+    background-color:rgb(192, 204, 190);
+    color:rgb(38, 66, 71);
+    margin: 10px;
+    padding: 10px;
 }
+
+.item_aside:hover {
+    background-color:rgb(38, 66, 71);
+    color:rgb(192, 204, 190);    
+    cursor: pointer;    
+}
+
+@media(max-width: 700px) {
+    .contenedor_article {
+        padding: 5px;
+    }
+    .contenedor_aside {
+        padding: 5px;
+    }
+    .item_aside {
+        display: inline-block;
+        margin-left: 10px;
+    }
+}
+@media(min-width: 700px) {
+    
+    .contenedor_article {
+        padding: 5px;
+    }
+    .contenedor_aside {
+        padding: 5px;
+    }
+    .item_aside {
+        display: inline-block;
+        margin-left: 10px;
+    }
+}
+
+@media(min-width: 1000px) {
+    .div_interno_section_01 {
+        display: grid;
+        grid-template-columns: 2fr 7fr;
+        padding: 5px;
+    }
+    .contenedor_article {
+        padding: 5px;
+    }
+    .contenedor_aside {
+        padding: 5px;
+    }
+    .item_aside {
+        display: block;
+    }
+}
+
+
+    

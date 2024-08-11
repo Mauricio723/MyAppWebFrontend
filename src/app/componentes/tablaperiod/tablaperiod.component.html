@@ -1,19 +1,20 @@
-<div class="border mx-1 my-1 px-2 py-2">
+<div class="bg-light mx-1 my-1 px-1 py-1">
 
     <div class="text-center mx-1 my-1 px-1 py-1 border">
-        <h2>Elementos de la tabla periódica</h2>
+        <h2 class="text-secondary">Elementos de la tabla periódica</h2>
     </div>
  
-    <div *ngIf="datosTablaPeriodica">
+    <div *ngIf="datosTablaPeriodica" class="">
 
-        <div class="row">
+        <div class="row gx-0">
 
-            <div *ngFor="let datoTabla of datosTablaPeriodica.elements" class="col-3 border border-danger">
+            <div *ngFor="let datoTabla of datosTablaPeriodica.elements" 
+                class="col-12 col-sm-6 col-md-6 col-lg-4 border border-danger">
 
-                <div class="border mx-1 my-1 px-2 py-1">
+                <div class="border text-center mx-1 my-1 px-2 py-1">
                    
                     <button type="button" (click)="abrir_modal_01(datoTabla.number)" class="btn btn-secondary" 
-                    style="width: 90%;height: 60px;">
+                    style="width: 90%;height: 60px;">                        
                         {{datoTabla.number}} - {{datoTabla.name}}
                     </button>
                   
@@ -57,6 +58,7 @@
                     <h6>period: {{datosTablaPeriodica.elements[elementoTablaSeleccionado].period}}</h6>
                     <h6>phase: {{datosTablaPeriodica.elements[elementoTablaSeleccionado].phase}}</h6>
                 </div>
+                
                 <div class="text-end py-1 pe-2">
                     <button (click)="cerrar_modal_01()">Cerrar</button>
                 </div>                

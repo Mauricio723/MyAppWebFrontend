@@ -1,30 +1,44 @@
 
-<div class="div_fisica_quimica_01 mx-1 my-2 px-2 py-2">
+<section class="mx-1 my-2 px-2 py-2">
 
-    <div class="div_fisica_quimica_02 px-2 py-2">
-        <h2>Espacio para Física & Química</h2>
+    <div class="px-2 py-2">
+        <h3 class="text-center color_titulo_section px-2 py-2 rounded-2">Espacio para Física & Química</h3>
     </div>
+  
+    <div class="div_interno_section_01">
 
-    <div class="container-fluid div_fisica_quimica_02">
+        <div class="contenedor_aside">
+            
+            <aside class="estilo_aside">
+              
+                <h6>Sección física & química</h6>
 
-        <div class="row">
-            <div class="col-lg-3 div_col_left_01">
-                <h6>Espacio para navegar</h6>
-                <h6>por física & química</h6>
+                <div>
+                    <p class="item_aside" (click)="btn_mostrarTabla()">Tabla periódica</p>
+                    <p class="item_aside">enlace disponible</p>
+                    <p class="item_aside">enlace disponible</p>
+                    <p class="item_aside"><a>enlace disponible</a></p>
+                    <p class="item_aside"><a>enlace disponible</a></p>
+                    <p class="item_aside"><a>enlace disponible</a></p>
+                </div>
+            </aside>
+            
+        </div>
 
-                <ol>
-                    <li><a class="btn" (click)="btn_mostrarTabla()">Tabla periódica</a></li>
-                </ol>
-            </div>
+        <div class="contenedor_article">
 
-            <div class="col-lg-9 div_col_right_01">
+            <article class="estilo_article">
 
                 <div *ngIf="mostrarTablaPeriodica">
                     <app-tablaperiod></app-tablaperiod>
                 </div>
-                
-            </div>
+
+            </article>
+                        
         </div>
+        
     </div>
     
-</div>
+</section>
+
+

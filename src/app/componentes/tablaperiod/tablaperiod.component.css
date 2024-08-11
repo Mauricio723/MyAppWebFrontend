@@ -10,8 +10,25 @@ dialog::backdrop {
     background-color: rgba(91, 105, 112, 0.63);
 }
 
-.estilo_dialog_01 {
-    width: 35%;   
-    background-color: rgb(78, 88, 21);
-    color: rgb(197, 223, 224);
+@media(max-width: 500px) {
+
+    .estilo_dialog_01 {
+        width: 300px;   
+        background-color: rgb(78, 88, 21);
+        color: rgb(197, 223, 224);
+    }
+}
+@media(min-width: 500px) {
+    .estilo_dialog_01 {
+        width: 400px;   
+        background-color: rgb(78, 88, 21);
+        color: rgb(197, 223, 224);
+    }
+}
+@media(min-width: 1000px) {
+    .estilo_dialog_01 {
+        width: 500px;   
+        background-color: rgb(78, 88, 21);
+        color: rgb(197, 223, 224);
+    }
 }
